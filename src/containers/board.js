@@ -41,8 +41,12 @@ export default class Board extends Component {
       if(item !== false){
         this.gameFinished(item);
       }
-    })
 
+
+    })
+    if(!tempArray.includes(0)){
+      this.gameFinished("draw")
+    }
   }
 
   gameFinished(winner){
@@ -50,6 +54,8 @@ export default class Board extends Component {
     buttons.forEach(button => {
       button.disabled = true;
     })
+
+    console.log(winner);
   }
 
   checkResult (index1, index2, index3) {
