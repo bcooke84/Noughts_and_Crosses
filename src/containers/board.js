@@ -7,6 +7,17 @@ export default class Board extends Component {
     this.state = {
       cells: [0,0,0,0,0,0,0,0,0]
     }
+
+  this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  handleButtonClick(event){
+    const tempArray = this.state.cells
+    tempArray[event.target.value] = 2
+    console.log('handleButtonClick() event: ', event.target);
+    // console.log(tempArray);
+    // console.log("button clicked");
+    this.setState({cells: tempArray})
   }
 
   render() {
@@ -14,12 +25,12 @@ export default class Board extends Component {
       <div id= "board-div">
       <table id = "board">
         <tr id="row-one">
-          <td id = "cell-one"> <Button position={this.state.cells[0]}/> </td>
-          <td id = "cell-two"> <Button/> </td>
-          <td id = "cell-three"> <Button/> </td>
+          <td id = "cell-one"> <Button position='0' onClick={this.handleButtonClick} value={this.state.cells[0]}/> </td>
+          <td id = "cell-two"> <Button position='1'/> </td>
+          <td id = "cell-three"> <Button position='2'/> </td>
         </tr>
         <tr id="row-two">
-          <td id = "cell-four"> <Button/> </td>
+          <td id = "cell-four"> <Button position='3'/> </td>
           <td id = "cell-five"> <Button/> </td>
           <td id = "cell-six"> <Button/> </td>
         </tr>
