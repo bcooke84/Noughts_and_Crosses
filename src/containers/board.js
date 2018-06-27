@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from "../components/button.js";
+import "./board.css"
 
 export default class Board extends Component {
   constructor(props){
@@ -45,7 +46,10 @@ export default class Board extends Component {
   }
 
   gameFinished(winner){
-    console.log(winner);
+    const buttons = document.querySelectorAll('button')
+    buttons.forEach(button => {
+      button.disabled = true;
+    })
   }
 
   checkResult (index1, index2, index3) {
@@ -90,6 +94,8 @@ export default class Board extends Component {
             <td id = "cell-nine"> <Button position='8' onClick={this.handleButtonClick} value={this.state.cells[8]}/> </td>
           </tr>
         </table>
+
+        <p> is the winner!</p>
       </div>
     )
   }
