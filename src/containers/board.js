@@ -37,12 +37,14 @@ export default class Board extends Component {
 
     const resultsArray = [col1, col2, col3, row1, row2, row3, diag1, diag2]
 
-    resultsArray.forEach(item => {
+    resultsArray.forEach((item, index) => {
       if(item !== false){
         this.gameFinished(item);
       } else {
-        if(!tempArray.includes(" ")){
-          this.gameFinished("draw")
+        if(index === resultsArray.length){
+          if(!tempArray.includes(" ")){
+            this.gameFinished("draw")
+          }
         }
 
       }
@@ -94,19 +96,19 @@ export default class Board extends Component {
       <div id= "board-div">
         <table id = "board">
           <tr id="row-one">
-            <td id = "cell-one"> <Button position='0' onClick={this.handleButtonClick} value={this.state.cells[0]}/> </td>
-            <td id = "cell-two"> <Button position='1' onClick={this.handleButtonClick} value={this.state.cells[1]}/> </td>
-            <td id = "cell-three"> <Button position='2' onClick={this.handleButtonClick} value={this.state.cells[2]}/> </td>
+            <td id = "cell-one" className="cell"> <Button position='0' onClick={this.handleButtonClick} value={this.state.cells[0]}/> </td>
+            <td id = "cell-two" className="cell"> <Button position='1' onClick={this.handleButtonClick} value={this.state.cells[1]}/> </td>
+            <td id = "cell-three" className="cell"> <Button position='2' onClick={this.handleButtonClick} value={this.state.cells[2]}/> </td>
           </tr>
           <tr id="row-two">
-            <td id = "cell-four"> <Button position='3' onClick={this.handleButtonClick} value={this.state.cells[3]}/> </td>
-            <td id = "cell-five"> <Button position='4' onClick={this.handleButtonClick} value={this.state.cells[4]}/> </td>
-            <td id = "cell-six"> <Button position='5' onClick={this.handleButtonClick} value={this.state.cells[5]}/> </td>
+            <td id = "cell-four" className="cell"> <Button position='3' onClick={this.handleButtonClick} value={this.state.cells[3]}/> </td>
+            <td id = "cell-five" className="cell"> <Button position='4' onClick={this.handleButtonClick} value={this.state.cells[4]}/> </td>
+            <td id = "cell-six"className="cell"> <Button position='5' onClick={this.handleButtonClick} value={this.state.cells[5]}/> </td>
           </tr>
           <tr id="row-three">
-            <td id = "cell-seven"> <Button position='6' onClick={this.handleButtonClick} value={this.state.cells[6]}/> </td>
-            <td id = "cell-eight"> <Button position='7' onClick={this.handleButtonClick} value={this.state.cells[7]}/> </td>
-            <td id = "cell-nine"> <Button position='8' onClick={this.handleButtonClick} value={this.state.cells[8]}/> </td>
+            <td id = "cell-seven" className="cell"> <Button position='6' onClick={this.handleButtonClick} value={this.state.cells[6]}/> </td>
+            <td id = "cell-eight" className="cell"> <Button position='7' onClick={this.handleButtonClick} value={this.state.cells[7]}/> </td>
+            <td id = "cell-nine" className="cell"> <Button position='8' onClick={this.handleButtonClick} value={this.state.cells[8]}/> </td>
           </tr>
         </table>
 

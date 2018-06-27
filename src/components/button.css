@@ -1,1 +1,48 @@
+.cell {
+  width: 10em;
+  height: 10em;
+  border: 1px solid black;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 4px;
+}
 
+p{
+  font-family: fantasy;
+  font-size: 50px;
+  color: slategrey;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+
+}
+
+div{
+  vertical-align: middle;
+}
+
+.button {
+  color: dodgerblue;
+  bottom: 0;
+  position: relative;
+  left: 25%;
+  margin-top: 6%;
+  font-size: 300px;
+  outline: none;
+  border: 2px solid white;
+  background-color: transparent;
+  opacity: 1;
+  width: 10em;
+  height: 10em;
+}
+
+button{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /* word-spacing: ????;
+  text-indent: ????; */
+  font-family: courier;
+  font-size: 100px;
+  color: slategrey;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
