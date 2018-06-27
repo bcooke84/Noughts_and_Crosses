@@ -33,6 +33,19 @@ export default class Board extends Component {
     const row3 = this.checkResult(6,7,8);
     const diag1 = this.checkResult(2,4,6);
     const diag2 = this.checkResult(0,4,8);
+
+    const resultsArray = [col1, col2, col3, row1, row2, row3, diag1, diag2]
+
+    resultsArray.forEach(item => {
+      if(item !== false){
+        this.gameFinished(item);
+      }
+    })
+
+  }
+
+  gameFinished(winner){
+    console.log(winner);
   }
 
   checkResult (index1, index2, index3) {
