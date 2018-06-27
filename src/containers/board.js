@@ -6,8 +6,8 @@ export default class Board extends Component {
   constructor(props){
     super(props);
     this.state = {
-      cells: [0,0,0,0,0,0,0,0,0],
-      next: 1
+      cells: [" ", " ", " ", " ", " ", " ", " "," ", " "],
+      next: "O"
     }
     this.checkResult = this.checkResult.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -20,10 +20,10 @@ export default class Board extends Component {
     tempArray[event.target.value] = this.state.next
     this.setState({cells: tempArray})
 
-    if(this.state.next === 1 ){
-      this.setState({next: 2})
+    if(this.state.next === "O" ){
+      this.setState({next: "X"})
     } else {
-      this.setState({next: 1})
+      this.setState({next: "O"})
     }
 
     const col1 = this.checkResult(0,3,6);
@@ -41,9 +41,10 @@ export default class Board extends Component {
       if(item !== false){
         this.gameFinished(item);
       } else {
-        if(!tempArray.includes(0)){
+        if(!tempArray.includes(" ")){
           this.gameFinished("draw")
         }
+
       }
 
     })
@@ -57,26 +58,32 @@ export default class Board extends Component {
     })
 
     const pTag = document.getElementById('winner')
-    pTag.textContent = winner
+
+    if(winner === "draw"){
+      pTag.textContent = "The game was a draw"
+    }else{
+      pTag.textContent = "The winner is " + winner;
+    }
+
   }
 
   checkResult (index1, index2, index3) {
 
     const cells = this.state.cells;
     const testArray = [cells[index1], cells[index2], cells[index3]];
-    if (testArray.includes(0)) {
+    if (testArray.includes(" ")) {
       return false;
     }
     else {
-      if (testArray.includes(1) && testArray.includes(2)) {
+      if (testArray.includes("O") && testArray.includes("X")) {
         return false;
       }
       else {
-        if (testArray.includes(1)) {
-          return 1;
+        if (testArray.includes("O")) {
+          return "O";
         }
         else {
-          return 2;
+          return "X";
         }
       }
     }
