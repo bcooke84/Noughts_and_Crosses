@@ -40,13 +40,14 @@ export default class Board extends Component {
     resultsArray.forEach(item => {
       if(item !== false){
         this.gameFinished(item);
+      } else {
+        if(!tempArray.includes(0)){
+          this.gameFinished("draw")
+        }
       }
 
-
     })
-    if(!tempArray.includes(0)){
-      this.gameFinished("draw")
-    }
+
   }
 
   gameFinished(winner){
@@ -55,7 +56,8 @@ export default class Board extends Component {
       button.disabled = true;
     })
 
-    console.log(winner);
+    const pTag = document.getElementById('winner')
+    pTag.textContent = winner
   }
 
   checkResult (index1, index2, index3) {
@@ -101,7 +103,7 @@ export default class Board extends Component {
           </tr>
         </table>
 
-        <p> is the winner!</p>
+        <p id="winner"> </p>
       </div>
     )
   }
